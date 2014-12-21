@@ -19,7 +19,7 @@ To access the x component of a vector:
     vec2 v = vec2 (1.0f, 0.0f, 0.0f);
     float x = v.v[0];
 
-To access the row 0, col 1 of a matrix:
+To access the row 0, col 1 of a 4X4 matrix:
 
     float f = my_matrix.m[4];
 
