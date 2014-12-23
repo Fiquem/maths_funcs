@@ -1,6 +1,8 @@
 Minimal maths functions header for 3d graphics.
 Functions designed to resemble GLSL and GLUT.
 Column-major matrix operations and memory layout.
+The original is C++, but there is also a semi-complete port to JavaScript for
+WebGL.
 
 ## data types ##
 
