@@ -3,6 +3,7 @@
 // anton gerdelan
 // 23 dec 2014
 // antongerdelan.net
+// 19 mar 2015 - patched by emma carrigan (quat_quat_mult, +scale mat4)
 //
 
 /*--------------------------------CONSTANTS----------------------------------*/
@@ -341,6 +342,15 @@ function rotate_y_deg (m, deg) {
 	return mult_mat4_mat4 (m_r, m);
 }
 
+// scale a matrix by [x, y, z]
+function scale (m, v) {
+	var a = identity_mat4 ();
+	a[0] = v[0];
+	a[5] = v[1];
+	a[10] = v[2];
+	return mult_mat4_mat4 (a, m);
+}
+
 /*-----------------------------VIRTUAL CAMERA--------------------------------*/
 
 /* generate 4x4 perspective projection matrix */
@@ -380,9 +390,9 @@ function quat_from_axis_deg (degrees, x, y, z) {
 function mult_quat_quat (r, s) {
 	var t = new Array ();
 	t[0] = r[0] * s[0] - r[1] * s[1] - r[2] * s[2] - r[3] * s[3];
-	t[1] = r[0] * s[1] + r[1] * s[0] - r[2] * s[3] - r[3] * s[2];
-	t[2] = r[0] * s[2] + r[1] * s[3] - r[2] * s[0] - r[3] * s[1];
-	t[3] = r[0] * s[3] - r[1] * s[2] - r[2] * s[1] - r[3] * s[0];
+	t[1] = r[0] * s[1] + r[1] * s[0] - r[2] * s[3] + r[3] * s[2];
+	t[2] = r[0] * s[2] + r[1] * s[3] + r[2] * s[0] - r[3] * s[1];
+	t[3] = r[0] * s[3] - r[1] * s[2] + r[2] * s[1] + r[3] * s[0];
 	return t;
 }
 
