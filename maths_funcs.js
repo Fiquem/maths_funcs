@@ -343,7 +343,7 @@ function rotate_y_deg (m, deg) {
 }
 
 // scale a matrix by [x, y, z]
-function scale (m, v) {
+function scale_mat4 (m, v) {
 	var a = identity_mat4 ();
 	a[0] = v[0];
 	a[5] = v[1];
